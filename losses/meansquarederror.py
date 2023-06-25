@@ -1,3 +1,5 @@
+import math
+
 import numpy as np
 
 class MeanSquaredError:
@@ -14,8 +16,8 @@ class MeanSquaredError:
                 mean squared error loss
         """
         # TODO: Implement mean squared error loss
-        batch_size = None
-        cost = None
+        # batch_size = y_true.shape[1]
+        cost =np.mean(np.square(y_pred - y_true)) / 2
         return np.squeeze(cost)
     
     def backward(self, y_pred, y_true):
@@ -28,4 +30,4 @@ class MeanSquaredError:
                 derivative of the mean squared error loss
         """
         # TODO: Implement backward pass for mean squared error loss
-        return None
+        return y_pred-y_true
